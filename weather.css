@@ -1,0 +1,518 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+body{
+    background-image:url("background3.jpg");
+    background-position-x: bottom;
+    background-repeat: no-repeat;
+    background-size: 120%;
+   
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+
+  .navbar{
+    position:absolute;
+    top:0;
+    width:100%;
+    display:flex;
+    justify-content: space-between;
+    padding:3% 6%;
+    z-index: 10;
+    overflow: hidden;
+  }
+  .left{
+    margin-top:7.5%;
+    position:sticky;
+  }
+.logo{
+    width:125px;
+    height:100%;
+    display: flex;
+    
+    
+}
+  .logo img{
+    width:60px;
+    height:60px;
+    border-radius: 50%;
+    margin-top:-20px;
+    margin-right:10px;
+  }
+
+  .searchbox{
+    margin-right:400px;
+    position:relative;
+    margin-top:-10px;
+  }
+
+  .searchbar{
+    width:350px;
+    height:50px;
+    color:white;
+    padding:10px 25px;
+    border-radius:50px;
+
+    border:none;
+    font-size: 15px;
+    background: #222;
+  }
+
+  .loader {
+    border: 5px solid #125e90; /* Light grey */
+    border-top: 5px solid black; /* Blue */
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    animation: spin 2s linear infinite;
+    left:75%;
+    bottom:20%;
+    visibility: hidden;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+   .searchbtn{
+    
+    margin-left:10px;
+    font-size: 20px;
+    font-weight: 600;
+    width:50px;
+    height:50px;
+    background-color: #224eae;
+    border:none;
+    color:white;
+    border-radius: 50px;
+    cursor: pointer;
+  }
+
+   .currentweather{
+    position:absolute;
+    left:2%;
+    top:15%;
+    transform: translate(-50% -50%);
+    background:linear-gradient(135deg, rgba(255,255,255,0.1),rgba(255,255,255,0)); 
+    backdrop-filter: blur(10px); 
+   -webkit-backdrop-filter: blur(10px); 
+    border:1px solid rgba(255,255,255,0.18); 
+    box-shadow: 0 8px 32px 0 rgba(0,0,0,0.37); 
+    padding:30px 20px;
+    border-radius:20px;
+    width:350px;
+    
+
+  }
+
+  .currentweather h1{
+    position:absolute;
+    font-size: 50px;
+    top:25%;
+    
+  }
+  
+  .currentweather h6{
+    font-size: 18px;
+  }
+  .currentweather img {
+   border-radius: 20px;
+    height:150px;
+    width:190px;
+    margin-left:40%;
+    margin-top: -20px;
+  }
+  
+  .currentweather .loc{
+    font-size: 18px;
+    display: flex;
+  }
+
+  .currentweather .time{
+    font-size: 18px;
+    display: flex;
+
+  }
+  .currentweather .time-now{
+    position: absolute;
+    left:50px;
+    
+  }
+  .currentweather .date{
+    position: absolute;
+    left:50px;
+    top:65%;
+  }
+
+  .currentweather #calender,
+  .currentweather #location{
+    margin-right:10px;
+  }
+
+  .todays-highlight{
+    position:absolute;
+    left:26%;
+    top:15%;
+    transform: translate(-50% -50%);
+    padding:30px 20px;
+    border-radius:20px;
+    width:1120px;
+    height:500px;
+    background:linear-gradient(135deg, rgba(255,255,255,0.1),rgba(255,255,255,0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border:1px solid rgba(255,255,255,0.18);
+    box-shadow: 0 8px 32px 0 rgba(0,0,0,0.37);
+    
+  }
+ 
+  .todays-highlight .windquality{
+    margin-top:20px;
+    position:absolute;
+    width:47%;
+    background:transparent;
+    height:200px;
+    border-radius:20px;
+    padding:30px 20px;
+    /* border:5px solid black; */
+  }
+  .todays-highlight .windquality .wind{
+   
+    font-size: 17px;
+    
+  }
+  .todays-highlight .windquality #air-logo{
+    margin-bottom:-10px;
+    font-size: 60px;
+    margin-left: 20px;
+  }
+  .todays-highlight .windquality .measure-table{
+    margin-left:100px;
+    margin-top:-80px;
+    border-collapse:separate;
+    border-spacing:50px 15px;
+  }
+
+  .todays-highlight .windquality .measure-table th{
+    font-size:20px;
+    margin-right:10px;
+    font-weight: 600;
+  }
+  .todays-highlight .windquality .measure-table td{
+    font-size:35px;
+    margin-right:10px;
+    font-weight: 600;
+  }
+  .todays-highlight .sunriseset{
+    margin-top:20px;
+    position:absolute;
+    width:47%;
+    background:transparent;
+    height:200px;
+    border-radius:20px;
+    padding:30px 20px;
+    left:51%;
+    /* border:5px solid black; */
+  }
+
+  .todays-highlight .humidity{
+    margin-top:230px;
+    position:absolute;
+    width:21.25%;
+    background:transparent;
+    height:200px;
+    border-radius:20px;
+    padding:30px 20px;
+    /* border:5px solid black; */
+  }
+
+  .todays-highlight .pressure{
+    margin-top:230px;
+    position:absolute;
+    width:21.25%;
+    background:transparent;
+    height:200px;
+    border-radius:20px;
+    padding:30px 20px;
+    margin-left: 280px;
+    /* border:5px solid black; */
+  }
+
+  .todays-highlight .visibility{
+    margin-top:230px;
+    position:absolute;
+    width:21.25%;
+    background:transparent;
+    height:200px;
+    border-radius:20px;
+    padding:30px 20px;
+    margin-left: 560px;
+    /* border:5px solid black; */
+  }
+
+
+  .todays-highlight .feelslike{
+    margin-top:230px;
+    position:absolute;
+    width:21.25%;
+    background:transparent;
+    height:200px;
+    border-radius:40px;
+    padding:30px 20px;
+    margin-left: 840px;
+     /* border-bottom:7px solid black;  */
+  }
+  .todays-highlight .sunriseset i{
+    font-size: 60px;
+  }
+
+  .todays-highlight .sunriseset h1{
+    margin-left:80px;
+    margin-top:-50px;
+  }
+  .todays-highlight .sunriseset .sunrise{
+    width:50%;
+    float:left;
+   
+  }
+  .todays-highlight .sunriseset .sunset{
+    width:50%;
+    float:right;
+  }
+
+  .todays-highlight .sunriseset h4
+  {
+    font-weight: 700;
+    font-size: 17px;
+  }
+
+
+  .humidity h4,
+  .pressure h4,
+  .visibility h4,
+  .feelslike h4{
+   
+    font-size: 17px;
+  }
+
+  .humidity i,
+  .pressure i,
+  .visibility i,
+  .feelslike i{
+    font-size:60px;
+  }
+
+  .humidity h2,
+  .pressure h2,
+  .visibility h2,
+  .feelslike h2{
+    margin-left:80px;
+    margin-top:-40px;
+    font-size:30px;
+  }
+
+
+  .five-day-forecast{
+    position:absolute;
+    left:2%;
+    top:68%;
+    transform: translate(-50% -50%);
+    border-radius:40px;
+    width:350px;
+    
+  }
+  .five-day-forecast h2{
+    font-size: 18.5px;
+   
+  }
+  .five-day-forecast .forecast{
+    position:absolute;
+    width:345px;
+    top:63%;
+    padding:25px 10px;
+    border-radius:20px;
+    left:1%;
+    margin-top: 20px;
+    border-collapse:separate;
+    border-spacing:30px 0;
+    background:linear-gradient(135deg, rgba(255,255,255,0.1),rgba(255,255,255,0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border:1px solid rgba(255,255,255,0.18);
+    box-shadow: 0 8px 32px 0 rgba(0,0,0,0.37);
+    
+  }
+
+  .five-day-forecast .forecast th{
+    font-size: 22px;
+    
+  }
+
+  .five-day-forecast .forecast td{
+    font-size: 18px;
+    
+    font-weight: 900;
+  }
+
+  .eight-hours-forecast{
+    position:absolute;
+    left:26%;
+    top:85%;
+    padding:30px 20px;
+    border-radius:20px;
+    width:1120px;
+    height:220px;
+    display: flex;
+    background:transparent;
+    /* backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border:1px solid rgba(255,255,255,0.18);
+    box-shadow: 0 8px 32px 0 rgba(0,0,0,0.37); */
+  }
+  .eight-hours-forecast i{
+    font-size: 40px;
+    margin-left:19px;
+    margin-bottom:10px;
+  }
+  .eight-hours-forecast h3{
+    
+    font-size: 18px;
+    margin-left:20px;
+    margin-bottom:10px;
+  }
+  .eight-hours-forecast h4{
+    
+    font-size: 17px;
+    margin-left:30px;
+    
+  }
+
+  .eight-hours-forecast .forecast1
+  {
+    position:absolute;
+    background:transparent;
+    padding:30px 20px;
+    border-radius:20px;
+    width:120px;
+    left:3%;
+    border:5px solid black;
+    background:linear-gradient(135deg, rgba(255,255,255,0.1),rgba(255,255,255,0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border:1px solid rgba(255,255,255,0.18);
+    box-shadow: 0 8px 32px 0 rgba(0,0,0,0.37);
+  }
+
+  .eight-hours-forecast .forecast2
+  {
+    position:absolute;
+    left:15%;
+    background:transparent;
+    padding:30px 20px;
+    border-radius:20px;
+    width:120px;
+    border:5px solid black;
+    background:linear-gradient(135deg, rgba(255,255,255,0.1),rgba(255,255,255,0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border:1px solid rgba(255,255,255,0.18);
+    box-shadow: 0 8px 32px 0 rgba(0,0,0,0.37);
+  }
+
+  .eight-hours-forecast .forecast3
+  {
+    position:absolute;
+    background:transparent;
+    padding:30px 20px;
+    border-radius:20px;
+    width:120px;
+    left:27%;
+    border:5px solid black;
+    background:linear-gradient(135deg, rgba(255,255,255,0.1),rgba(255,255,255,0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border:1px solid rgba(255,255,255,0.18);
+    box-shadow: 0 8px 32px 0 rgba(0,0,0,0.37);
+  }
+
+  .eight-hours-forecast .forecast4
+  {
+    position:absolute;
+    background:transparent;
+    padding:30px 20px;
+    border-radius:20px;
+    width:120px;
+    left:39%;
+    border:5px solid black;
+    background:linear-gradient(135deg, rgba(255,255,255,0.1),rgba(255,255,255,0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border:1px solid rgba(255,255,255,0.18);
+    box-shadow: 0 8px 32px 0 rgba(0,0,0,0.37);
+  }
+
+  .eight-hours-forecast .forecast5
+  {
+    position:absolute;
+    background:transparent;
+    padding:30px 20px;
+    border-radius:20px;
+    width:120px;
+    left:51%;
+    border:5px solid black;
+    background:linear-gradient(135deg, rgba(255,255,255,0.1),rgba(255,255,255,0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border:1px solid rgba(255,255,255,0.18);
+    box-shadow: 0 8px 32px 0 rgba(0,0,0,0.37);
+  }
+  .eight-hours-forecast .forecast6
+  {
+    position:absolute;
+    background:transparent;
+    padding:30px 20px;
+    border-radius:20px;
+    width:120px;
+    left:63%;
+    border:5px solid black;
+    background:linear-gradient(135deg, rgba(255,255,255,0.1),rgba(255,255,255,0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border:1px solid rgba(255,255,255,0.18);
+    box-shadow: 0 8px 32px 0 rgba(0,0,0,0.37);
+  }
+  .eight-hours-forecast .forecast7
+  {
+    position:absolute;
+    background:transparent;
+    padding:30px 20px;
+    border-radius:20px;
+    width:120px;
+    left:75.5%;
+    border:5px solid black;
+    background:linear-gradient(135deg, rgba(255,255,255,0.1),rgba(255,255,255,0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border:1px solid rgba(255,255,255,0.18);
+    box-shadow: 0 8px 32px 0 rgba(0,0,0,0.37);
+  }
+  .eight-hours-forecast .forecast8
+  {
+    position:absolute;
+    background:transparent;
+    padding:30px 20px;
+    border-radius:20px;
+    width:120px;
+    left:88%;
+    border:5px solid black;
+    background:linear-gradient(135deg, rgba(255,255,255,0.1),rgba(255,255,255,0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border:1px solid rgba(255,255,255,0.18);
+    box-shadow: 0 8px 32px 0 rgba(0,0,0,0.37);
+  }
+ 
+ 
