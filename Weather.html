@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Weather Application</title>
     <link rel="stylesheet" href="weather.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
@@ -25,8 +25,8 @@
     <div class="currentweather">
         
         <h4>Now</h4>
-        <h1 class="temp">20°c</h1><img class="current-weather-logo" src="snow.png">
-        <p class="desc">clouds</p>
+        <h1 class="temp"></h1><img class="current-weather-logo" src="snow.png">
+        <p class="desc"></p>
         <br>
         <hr>
         <br>
@@ -81,7 +81,7 @@
                 <h4>Sunset</h4><br>
                 <i class="fa-solid fa-moon" style="color:gray"></i>
                 
-                <h1 id="sunset">6.00 PM</h1>
+                <h1 id="sunset"></h1>
             </div>
         </div>
 
@@ -93,8 +93,8 @@
 
         <div class="pressure">
             <h4>Pressure</h4><br>
-            <i class="fa-solid fa-water"></i>
-            <h2 id="pressure">1011 hPa</h2>
+            <p><i class="fa-solid fa-water"></i></p>
+            <h2 id="pressure"></h2>
         </div>
         <div class="visibility">
             <h4>Visibility</h4><br>
@@ -187,7 +187,15 @@
             </div>
         </div>
         
-        
+        <div class="warning1">
+            <div class="close-btn">&times;</div>
+            <h2>ENTER PROPER LOCATION </h2>
+        </div>
+
+        <div class="warning2">
+            <div class="close-btn">&times;</div>
+            <h2>SORRY, LOCATION NOT FOUND </h2>
+        </div>
    <script src="weather.js"></script>
 </body>
 </html>
