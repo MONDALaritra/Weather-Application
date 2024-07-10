@@ -19,6 +19,7 @@ async function checkWeather(city){
     
     var data=await response.json();
     loading.style.visibility="visible";
+    
     if(data.cod=="200"){
         
         await sleep(2000);
@@ -44,8 +45,8 @@ async function checkWeather(city){
         document.querySelector(".temp").innerHTML=Math.round(data.main.temp)+ "°C";
         document.querySelector(".desc").innerHTML=data.weather[0].description;
         document.querySelector(".city").innerHTML=data.name + " , " +data.sys.country ;
-        document.querySelector(".speed").innerHTML=data.wind.speed ;
-        document.querySelector(".degree").innerHTML=data.wind.deg ;
+        document.querySelector(".speed").innerHTML=Math.round(data.wind.speed*3.6)+"Kph";
+        document.querySelector(".degree").innerHTML=data.wind.deg+"°" ;
         document.querySelector(".gust").innerHTML=data.wind.gust ;
         document.querySelector("#humidity").innerHTML=data.main.humidity+ "%" ;
         document.querySelector("#pressure").innerHTML=data.main.pressure+ "hPa" ;
@@ -137,7 +138,7 @@ async function checkWeather(city){
         }
         else if(data.weather[0].icon == "50d"){//day mist
             weather.src=" https://openweathermap.org/img/wn/50d@2x.png";
-            document.body.style.backgroundImage="url('day-mist.jpeg')";
+            document.body.style.backgroundImage="url('mist-kolkata.jpeg')";
             document.body.style.color="black";
         }
         else if(data.weather[0].icon == "50n"){//night mist
@@ -154,34 +155,6 @@ async function checkWeather(city){
         if(document.querySelector(".gust").innerHTML=="undefined"){
             document.querySelector(".gust").innerHTML="0";
         }
-
-        // if(data.weather[0].main=="Clouds"){
-        //     if(formattedcurrentTime>="06:00" && formattedcurrentTime<="17:30"){
-        //         weather.src="sun-cloud.png";
-        //     }
-        //     else{
-        //         weather.src="clouds6.png";
-        //     }
-            
-        // }
-        // else if(data.weather[0].main=="Clear"){
-        //     weather.src="sun.png";
-        // }
-        // else if(data.weather[0].main=="Rain"){
-        //     if(formattedcurrentTime>="06:00" && formattedcurrentTime<="17:30"){
-        //         weather.src="sun-rain.png";
-        //     }
-        //     else{
-        //         weather.src="rain.png";
-        //     }
-        
-        // }
-        // else if(data.weather[0].main=="Drizzle"){
-        //     weather.src="drizzle2.png";
-        // }
-        // else if(data.weather[0].main=="Mist"){
-        //     weather.src="mist.png";
-        // }
 
         const humidcolor=document.querySelector(".humidity p");
         if(data.main.humidity>=0 && data.main.humidity<=30){
@@ -216,6 +189,14 @@ async function checkWeather(city){
         if(Math.round(data.main.feels_like)>=40){
             feelscolor.style.color="red";
         }
+
+        const Pressure= document.querySelector(".pressure p");
+        if(Math.round(data.main.pressure)>=0 && Math.round(data.main.feels_like)<=1023){
+            Pressure.style.color="red";
+        }
+        else{
+            Pressure.style.color="blue";
+        }
         const response_forecast=await fetch(apiUrl2+ city + `&appid=${apikey}`);
         var data_forecast=await response_forecast.json();
 
@@ -243,14 +224,51 @@ async function checkWeather(city){
     else{
         await sleep(2000);
         loading.style.visibility="hidden";
-        alert("CITY NOT FOUND");
+        document.querySelector(".warning2").classList.add("active");
+        document.querySelector(".navbar").style.opacity="0.5";
+        document.querySelector(".currentweather").style.opacity="0.5";
+        document.querySelector(".todays-highlight").style.opacity="0.5";
+        document.querySelector(".five-day-forecast").style.opacity="0.5";
+        document.querySelector(".eight-hours-forecast").style.opacity="0.5";
+        document.querySelector(".searchbox").style.pointerEvents="none";
+        document.querySelector(".warning2 .close-btn").addEventListener("click",function(){
+            document.querySelector(".warning2").classList.remove("active");
+            document.querySelector(".navbar").style.opacity="1";
+            document.querySelector(".currentweather").style.opacity="1";
+            document.querySelector(".todays-highlight").style.opacity="1";
+            document.querySelector(".five-day-forecast").style.opacity="1";
+            document.querySelector(".eight-hours-forecast").style.opacity="1";
+            document.querySelector(".searchbox").style.pointerEvents="auto";
+        });
     }
     
 } 
 
 
 searchBtn.addEventListener("click",()=>{
-    checkWeather(searchBox.value);
+    if(searchBox.value!=""){
+        checkWeather(searchBox.value);
+    }
+    else{
+        document.querySelector(".warning1").classList.add("active");
+        document.querySelector(".navbar").style.opacity="0.5";
+        document.querySelector(".currentweather").style.opacity="0.5";
+        document.querySelector(".todays-highlight").style.opacity="0.5";
+        document.querySelector(".five-day-forecast").style.opacity="0.5";
+        document.querySelector(".eight-hours-forecast").style.opacity="0.5";
+        document.querySelector(".searchbox").style.pointerEvents="none";
+        document.querySelector(".warning1 .close-btn").addEventListener("click",function(){
+            document.querySelector(".warning1").classList.remove("active");
+            document.querySelector(".navbar").style.opacity="1";
+            document.querySelector(".currentweather").style.opacity="1";
+            document.querySelector(".todays-highlight").style.opacity="1";
+            document.querySelector(".five-day-forecast").style.opacity="1";
+            document.querySelector(".eight-hours-forecast").style.opacity="1";
+            document.querySelector(".searchbox").style.pointerEvents="auto";
+        });
+        
+    }
+   
    
 })
 
