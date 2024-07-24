@@ -270,6 +270,33 @@ searchBtn.addEventListener("click",()=>{
     }
    
    
-})
+});
+
+searchBox.addEventListener("keyup",(e)=>{
+    if(e.keyCode === 13){
+        if(searchBox.value!=""){
+            checkWeather(searchBox.value);
+        }
+        else{
+            document.querySelector(".warning1").classList.add("active");
+            document.querySelector(".navbar").style.opacity="0.5";
+            document.querySelector(".currentweather").style.opacity="0.5";
+            document.querySelector(".todays-highlight").style.opacity="0.5";
+            document.querySelector(".five-day-forecast").style.opacity="0.5";
+            document.querySelector(".eight-hours-forecast").style.opacity="0.5";
+            document.querySelector(".searchbox").style.pointerEvents="none";
+            document.querySelector(".warning1 .close-btn").addEventListener("click",function(){
+                document.querySelector(".warning1").classList.remove("active");
+                document.querySelector(".navbar").style.opacity="1";
+                document.querySelector(".currentweather").style.opacity="1";
+                document.querySelector(".todays-highlight").style.opacity="1";
+                document.querySelector(".five-day-forecast").style.opacity="1";
+                document.querySelector(".eight-hours-forecast").style.opacity="1";
+                document.querySelector(".searchbox").style.pointerEvents="auto";
+            });
+        }    
+    }
+});
+
 
 
