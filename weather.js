@@ -1,4 +1,4 @@
-const apikey="9484af58387ffe454fce95ea7f66b06b";
+const apikey="";
 const apiurl="https://api.openweathermap.org/data/2.5/weather?&units=metric&q=";
 const apiUrl2="https://api.openweathermap.org/data/2.5/forecast?&units=metric&q=";
 
